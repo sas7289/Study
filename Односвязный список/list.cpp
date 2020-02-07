@@ -2,13 +2,8 @@
 
 using namespace std;
 
-struct Node
-{
-	char* name;
-	Node* next;
-};
 
-Node* Create(char* iname)
+Node* create(char* iname)
 {
 	Node* n = new Node;
 	n->name = iname;
@@ -18,14 +13,17 @@ Node* Create(char* iname)
 
 ostream& operator << (ostream& os, Node* n)
 {
+	if (n == NULL)
+	{
+		return os;
+	}
 	os << n->name;
 	return os;
 }
 
 void add(Node* head, Node* item)
 {
-	Node* temp;
-	temp = head;
+	Node* temp = head;
 	while (temp->next != NULL)
 	{
 		temp = temp->next;
@@ -58,16 +56,20 @@ int count(Node* head)
 
 Node* at(Node* head, int position)
 {
-	Node* ret = NULL;
-	ret = head;
-	for (int i = 1; i != position; ++i)
+	Node* ret = head;
+	for (int i = 0; i < position; ++i)
 	{
 		ret = ret->next;
+		if (ret == NULL)
+		{
+			cout << "\nThere is no such element\n";
+			return 0;
+		}
 	}
 	return ret;
 }
 
-Node* Copy(Node* head)
+Node* copy(Node* head)
 {
 	Node* newh = new Node;
 	newh->name = head->name;
@@ -84,4 +86,32 @@ Node* Copy(Node* head)
 		oldHead = oldHead->next;
 	}
 	return newh;
+}
+
+void insertAfter(Node* item, Node* newItem)
+{
+	if (item->next == NULL)
+	{
+		item->next = newItem;
+		newItem->next = NULL;
+		return;
+	}
+	newItem->next = item->next;
+	item->next = newItem;
+}
+
+void insertAfter(Node* item, char* newItem)
+{
+	if (item->next == NULL)
+	{
+		Node* nextNode = new Node;
+		item->next = nextNode;
+		nextNode->name = newItem;
+		nextNode->next = NULL;
+		return;
+	}
+	Node* middle = new Node;
+	middle->name = newItem;
+	middle->next = item->next;
+	item->next = middle;
 }

@@ -11,14 +11,16 @@ int main()
     char N4[] = "five";
     char N5[] = "six";
     char N6[] = "seven";
+    char ins[] = "insert";
 
-    Node* headn = Create(head);
-    Node* N1n = Create(N1);
-    Node* N2n = Create(N2);
-    Node* N3n = Create(N3);
-    Node* N4n = Create(N4);
-    Node* N5n = Create(N5);
-    Node* N6n = Create(N6);
+    Node* headn = create(head);
+    Node* N1n = create(N1);
+    Node* N2n = create(N2);
+    Node* N3n = create(N3);
+    Node* N4n = create(N4);
+    Node* N5n = create(N5);
+    Node* N6n = create(N6);
+    Node* insN = create(ins);
 
     //cout << head;
     add(headn, N1n);
@@ -31,14 +33,20 @@ int main()
     showAll(headn);
 
     int countn = count(headn);
-    cout << "\nCount nodes = " << countn;
+    cout << "\nCount nodes = " << countn << "\n";
 
-    Node *ret = at(headn, 1);
-    cout << "\n\n" << ret;
+    Node *ret = at(headn, 0);
+    cout << "\n" << ret << "\n";
 
     Node* newHead = NULL;
-    newHead = Copy(headn);
+    newHead = copy(headn);
     showAll(newHead);
+    cout << "\n";
+    insertAfter(N4n, insN);
+    showAll(headn);
+    cout << "\n";
+    insertAfter(N1n, ins);
+    showAll(headn);
 }
 
 

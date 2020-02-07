@@ -6,13 +6,21 @@
 
 using namespace std;
 
-struct Node;
+struct Node
+{
+	char* name;
+	Node* next;
+};
 
-Node* Create(char* iname);
+Node* create(char* iname);
 
 ostream& operator << (ostream& os, Node* n);
 
 void add(Node* head, Node* item);
+
+void insertAfter(Node* item, Node* newItem);
+
+void insertAfter(Node* item, char* newItem);
 
 void showAll(Node* head);
 
@@ -20,6 +28,6 @@ int count(Node* head);
 
 Node* at(Node* head, int position);
 
-Node* Copy(Node* head);
+Node* copy(Node* head);
 
 #endif // !list_h
