@@ -90,26 +90,12 @@ Node* copy(Node* head)
 
 void insertAfter(Node* item, Node* newItem)
 {
-	if (item->next == NULL)
-	{
-		item->next = newItem;
-		newItem->next = NULL;
-		return;
-	}
 	newItem->next = item->next;
 	item->next = newItem;
 }
 
 void insertAfter(Node* item, char* newItem)
 {
-	if (item->next == NULL)
-	{
-		Node* nextNode = new Node;
-		item->next = nextNode;
-		nextNode->name = newItem;
-		nextNode->next = NULL;
-		return;
-	}
 	Node* middle = new Node;
 	middle->name = newItem;
 	middle->next = item->next;
