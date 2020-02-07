@@ -149,7 +149,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="list.cpp" />
-    <ClCompile Include="Односвязный список.cpp" />
+    <ClCompile Include="ListList.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="list.h" />
