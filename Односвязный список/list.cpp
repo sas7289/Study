@@ -101,3 +101,16 @@ void insertAfter(Node* item, char* newItem)
 	middle->next = item->next;
 	item->next = middle;
 }
+
+int compare(Node* list, Node* sampleList)
+{
+	while (sampleList->name != NULL)
+	{
+		if (list->name == sampleList->name)
+		{
+			continue;
+		}
+		return 1;
+	}
+	return 0;
+}
