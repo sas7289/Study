@@ -69,7 +69,7 @@ Node* at(Node* head, int position)
 	return ret;
 }
 
-Node* copy(Node* head)
+Node* copy(Node* head)  //сделать на create и insertafter
 {
 	Node* newh = new Node;
 	newh->name = head->name;
