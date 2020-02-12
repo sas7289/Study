@@ -14,6 +14,7 @@ using namespace std;
 
 int main()
 {
+    /*
     char head[] = "one";
     char N1[] = "two";
     char N2[] = "three";
@@ -58,7 +59,7 @@ int main()
     insertAfter(N1n, ins);
     showAll(headn);
 
-
+    */
 
     // Create the event manager and test controller
     CPPUNIT_NS::TestResult controller;

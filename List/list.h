@@ -31,7 +31,9 @@ Node* at(Node* head, int position);
 Node* copy(Node* head);
 
 
-int compare(Node* list, Node* sampleList);
+bool compare(Node* list, Node* sampleList);
+
+bool compare(Node* list, Node* sampleList, int n);
 
 
 

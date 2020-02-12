@@ -64,19 +64,19 @@ Node* at(Node* head, int position)
 	return head;
 }
 
-Node* copy(Node* head)  //сделать на create и insertafter
+Node* copy(Node* head)
 {
 	Node* newHead = create(head->name);
-	Node* newList = newHead->next;
+	Node* newList = newHead;
 	head = head->next;
 	while (head != NULL)
 	{
-		newList = create(head->name);
-		//insertAfter(newHead, newList);
-		newList = newList->next;
+		Node* nextNode = create(head->name);
+		insertAfter(newHead, nextNode);
+		newHead = newHead->next;
 		head = head->next;
 	}
-	return newHead;
+	return newList;
 }
 
 void insertAfter(Node* item, Node* newItem)
@@ -93,15 +93,44 @@ void insertAfter(Node* item, char* newItem)
 	item->next = middle;
 }
 
-int compare(Node* list, Node* sampleList)
+bool compare(Node* list, Node* sampleList)
 {
-	while (sampleList->name != NULL)
+	bool finished1 = false;
+	bool finished2 = false;
+	do
 	{
-		if (list->name == sampleList->name)
+		if (strcmp(list->name, sampleList->name))
 		{
-			continue;
+			return false;
 		}
-		return 1;
-	}
-	return 0;
+		list = list->next;
+		sampleList = sampleList->next;
+		finished1 = list == nullptr;
+		finished2 = sampleList == nullptr;
+
+	} while (!(finished1 || finished2));
+	return (finished1 == finished2);
+}
+
+bool compare(Node* list, Node* sampleList, int n)
+{
+	bool finished1 = false;
+	bool finished2 = false;
+	do
+	{
+		if (--n < 0)
+		{
+			break;
+		}
+		if (strcmp(list->name, sampleList->name))
+		{
+			return false;
+		}
+		list = list->next;
+		sampleList = sampleList->next;
+		finished1 = list == nullptr;
+		finished2 = sampleList == nullptr;
+
+	} while (!(finished1 || finished2));
+	return (n <= 0 || finished1 == finished2);
 }

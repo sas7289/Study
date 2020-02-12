@@ -18,15 +18,14 @@ class ListTestCase : public CPPUNIT_NS::TestFixture
     CPPUNIT_TEST_SUITE(ListTestCase);
     CPPUNIT_TEST(TestCreate);
     CPPUNIT_TEST(TestCopy);
-    CPPUNIT_TEST(testAdd);
+    CPPUNIT_TEST(TestAdd);
     CPPUNIT_TEST(TestInsertAfter);
     CPPUNIT_TEST(TestAt);
     CPPUNIT_TEST(TestCount);
     CPPUNIT_TEST_SUITE_END();
 
 protected:
-    Node* headn, * N1n, * N2n, * N3n, * N4n, * N5n, * N6n, * insN;
-
+    Node * testList, * nTemp;
 
 
 public:
@@ -39,6 +38,10 @@ protected:
     void TestInsertAfter();
     void TestAt();
     void TestCount();
+private:
+
+    Node* sampleList, * n1, * n2, * n3, * n4, * n5, * n6, * n7;
+
 };
 
 
