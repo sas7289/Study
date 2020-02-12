@@ -58,7 +58,7 @@ Node* at(Node* head, int position)
 		if (head == nullptr)
 		{
 			cout << "\nThere is no such element\n";
-			return 0;
+			return nullptr;
 		}
 	}
 	return head;
