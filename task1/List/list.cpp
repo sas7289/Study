@@ -69,7 +69,7 @@ Node* copy(Node* head)
 	Node* newHead = create(head->name);
 	Node* newList = newHead;
 	head = head->next;
-	while (head != NULL)
+	while (head != nullptr)
 	{
 		Node* nextNode = create(head->name);
 		insertAfter(newHead, nextNode);
