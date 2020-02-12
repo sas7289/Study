@@ -1,4 +1,4 @@
-//#include <cppunit/config/SourcePrefix.h>
+
 #include "ListTestCase.h"
 
 CPPUNIT_TEST_SUITE_REGISTRATION(ListTestCase);

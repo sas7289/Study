@@ -37,4 +37,4 @@ bool compare(Node* list, Node* sampleList, int n);
 
 
 
-#endif // !list_h
+#endif
