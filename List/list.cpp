@@ -7,13 +7,13 @@ Node* create(char* iname)
 {
 	Node* n = new Node;
 	n->name = iname;
-	n->next = NULL;
+	n->next = nullptr;
 	return n;
 }
 
 ostream& operator << (ostream& os, Node* n)
 {
-	if (n == NULL)
+	if (n == nullptr)
 	{
 		return os;
 	}
@@ -23,69 +23,60 @@ ostream& operator << (ostream& os, Node* n)
 
 void add(Node* head, Node* item)
 {
-	Node* temp = head;
-	while (temp->next != NULL)
+	while (head->next != nullptr)
 	{
-		temp = temp->next;
+		head = head->next;
 	}
-	temp->next = item;
+	head->next = item;
 }
 
 void showAll(Node* head)
 {
-	Node* temp = head;
-	while (temp != NULL)
+	while (head != nullptr)
 	{
-		cout << temp << "\n";
-		temp = temp->next;
+		cout << head << "\n";
+		head = head->next;
 	}
 }
 
 int count(Node* head)
 {
 	int n = 0;
-	Node* temp;
-	temp = head;
-	while (temp != NULL)
+	while (head != nullptr)
 	{
 		++n;
-		temp = temp->next;
+		head = head->next;
 	}
 	return n;
 }
 
 Node* at(Node* head, int position)
 {
-	Node* ret = head;
 	for (int i = 0; i < position; ++i)
 	{
-		ret = ret->next;
-		if (ret == NULL)
+		head = head->next;
+		if (head == nullptr)
 		{
 			cout << "\nThere is no such element\n";
 			return 0;
 		}
 	}
-	return ret;
+	return head;
 }
 
 Node* copy(Node* head)  //сделать на create и insertafter
 {
-	Node* newh = new Node;
-	newh->name = head->name;
-	Node* newHead = newh;
-	Node* oldHead = head->next;
-	while (oldHead != NULL)
+	Node* newHead = create(head->name);
+	Node* newList = newHead->next;
+	head = head->next;
+	while (head != NULL)
 	{
-		Node* newHeadNext = new Node;
-		newHeadNext->name = oldHead->name;
-		newHeadNext->next = NULL;
-		newHead->next = newHeadNext;
-
-		newHead = newHeadNext;
-		oldHead = oldHead->next;
+		newList = create(head->name);
+		//insertAfter(newHead, newList);
+		newList = newList->next;
+		head = head->next;
 	}
-	return newh;
+	return newHead;
 }
 
 void insertAfter(Node* item, Node* newItem)
