@@ -30,10 +30,7 @@ Node* at(Node* head, int position);
 
 Node* copy(Node* head);
 
-
-bool compare(Node* list, Node* sampleList);
-
-bool compare(Node* list, Node* sampleList, int n);
+bool compare(Node* list, Node* sampleList, int n = INT32_MAX);
 
 
 

@@ -1,4 +1,5 @@
 #include "list.h"
+#include <limits>
 
 using namespace std;
 
@@ -69,7 +70,7 @@ Node* copy(Node* head)
 	Node* newHead = create(head->name);
 	Node* newList = newHead;
 	head = head->next;
-	while (head != nullptr)
+	while (head)
 	{
 		Node* nextNode = create(head->name);
 		insertAfter(newHead, nextNode);
@@ -93,24 +94,7 @@ void insertAfter(Node* item, char* newItem)
 	item->next = middle;
 }
 
-bool compare(Node* list, Node* sampleList)
-{
-	bool finished1 = false;
-	bool finished2 = false;
-	do
-	{
-		if (strcmp(list->name, sampleList->name))
-		{
-			return false;
-		}
-		list = list->next;
-		sampleList = sampleList->next;
-		finished1 = list == nullptr;
-		finished2 = sampleList == nullptr;
 
-	} while (!(finished1 || finished2));
-	return (finished1 == finished2);
-}
 
 bool compare(Node* list, Node* sampleList, int n)
 {
